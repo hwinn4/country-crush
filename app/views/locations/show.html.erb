@@ -26,3 +26,7 @@
     </tr>
   <% end %>
 </table>
+
+<% @ten_flickr_pics.each do |url| %>
+  <p><%= image_tag url %></p>
+<% end %>
