@@ -1,0 +1,6 @@
+<h2>Which City Do You Have a Crush On?</h2>
+<ul>
+<% @locations.each do |location| %>
+  <li><%= link_to location, location_path(location), :data => location %></li>
+<% end %>
+</ul>

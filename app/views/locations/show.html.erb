@@ -1,0 +1,28 @@
+<h2>Ten Tweets</h2>
+<table id="tweet-table">
+  <% @ten_tweets.each do |tweet| %>
+    <tr class="tweet-row">
+      <td><%= image_tag tweet.user.profile_image_uri_https %>
+      </td>
+      <td><%= tweet.user.name %> <br>
+        @<%= tweet.user.screen_name %> 
+      </td>
+      <% tweet_words = tweet.text.split(" ") %>
+      <% tweet_text = "" %>
+      <% link = nil %>
+      <% tweet_words.each do |word| %>
+        <% if word =~ /https?:\/\/[\S]+/ %>
+          <% link = word %>
+        <% else %>
+          <% tweet_text += word %>
+          <% tweet_text += " " %>
+        <% end %>
+      <% end %>
+      <td>
+        <%= tweet_text %> 
+        <!-- <%= image_tag link %> -->
+        <%= link_to link, link %> 
+      </td>
+    </tr>
+  <% end %>
+</table>
