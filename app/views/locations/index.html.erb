@@ -1,6 +1,36 @@
 <h2>Which City Do You Have a Crush On?</h2>
-<ul>
+
+<h3>All Crushes</h3>
+<ul class="city-list">
 <% @locations.each do |location| %>
-  <li><%= link_to location.name, location_path(location), :data => location %></li>
+  <li> 
+    <% if location.favorite %>
+      <%= link_to image_tag('favorited_icon.png', :border => 0, :class => "index-icon"), location_path(location.id), :method => 'patch'  %> 
+    <% else %>
+      <%= link_to image_tag('heart_icon.png', :border => 0, :class => "index-icon"), location_path(location.id), :method => 'patch'  %> 
+    <% end %>
+    <%= link_to image_tag('remove_icon.png', :border => 0, :class => "index-icon"), location_path(location.id), :method => 'delete'  %> 
+    <%= link_to location.name, location_path(location) %></li>
 <% end %>
+
 </ul>
+
+<h3>Favorite Crushes</h3>
+<ul class="city-list">
+  <% @locations.each do |location| %>
+    <% if location.favorite %>
+      <li>
+        <%= link_to image_tag('favorited_icon.png', :border => 0, :class => "index-icon"), location_path(location.id), :method => 'patch'  %> 
+          <%= link_to image_tag('remove_icon.png', :border => 0, :class => "index-icon"), location_path(location.id), :method => 'delete'  %> 
+        <%= link_to location.name, location_path(location) %></li>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "Add a City", new_location_path, :class => "btn btn-default" %>
+
+<p>index by Krish from the Noun Project</p>
+<p>Yes index by Nathan Rofkahr from the Noun Project</p>
+<p>cancel by Yu Luck from the Noun Project</p>
+

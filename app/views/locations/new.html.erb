@@ -1,0 +1,5 @@
+<h2>Add your favorite city</h2>
+<%= simple_form_for @location do |f| %>
+  <%= f.input :name, input_html: { class: 'new-city-form' } %>
+  <%= f.button :submit %>
+<% end %>

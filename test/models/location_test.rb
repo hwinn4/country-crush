@@ -2,8 +2,9 @@
 #
 # Table name: locations
 #
-#  id   :integer          not null, primary key
-#  name :string
+#  id       :integer          not null, primary key
+#  name     :string
+#  favorite :boolean          default(FALSE)
 #
 
 require 'test_helper'

@@ -10,6 +10,10 @@ module Adapters
       end
     end
 
+    def get_location_tweets(client, location)
+      client.search("#'#{location}' -rt", lang: "en").take(10)
+    end
+
   end
 end
 

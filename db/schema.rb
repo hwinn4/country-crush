@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 20160305022602) do
   enable_extension "plpgsql"
 
   create_table "locations", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.boolean "favorite", default: false
   end
 
 end
